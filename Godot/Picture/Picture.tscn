@@ -1,56 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Picture/Picture.gd" type="Script" id=1]
+[ext_resource path="res://Picture/Flash.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-[sub_resource type="Shader" id=4]
-code = "shader_type canvas_item;
-
-uniform float flash_modifier : hint_range(0, 1.0) = 0.0;
-
-void fragment() {
-	vec4 color = COLOR;
-	color.a = flash_modifier;
-	COLOR = color;
-}"
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 4 )
-shader_param/flash_modifier = 0.0
-
-[sub_resource type="Animation" id=5]
-resource_name = "Picture_Flash"
-length = 0.05
-step = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("flash/ColorRect:material:shader_param/flash_modifier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.05 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.6, 0.0 ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 0.01
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("flash/ColorRect:material:shader_param/flash_modifier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [node name="Picture" type="Node2D"]
 script = ExtResource( 1 )
@@ -64,31 +17,6 @@ shape = SubResource( 1 )
 
 [node name="Elements" type="Node2D" parent="."]
 
-[node name="flash" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
-
-[node name="ColorRect" type="ColorRect" parent="flash"]
-material = SubResource( 3 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
-input_pass_on_modal_close_click = false
-color = Color( 0.94902, 0.94902, 0.894118, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="flash"]
-root_node = NodePath("../..")
-method_call_mode = 1
-anims/Picture_Flash = SubResource( 5 )
-anims/RESET = SubResource( 6 )
+[node name="flash" parent="." instance=ExtResource( 2 )]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="animation_finished" from="flash/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="ready" from="flash/AnimationPlayer" to="." method="_on_AnimationPlayer_ready"]

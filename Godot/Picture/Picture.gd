@@ -5,9 +5,6 @@ var isDeveloping
 var developingTicks
 var ticksElapsed
 
-var flash
-var animation
-
 export var aspect_ratio : float = 1.348
 export var size : float = 1
 
@@ -69,28 +66,10 @@ func copy_physical_and_visual_children(dest, targ):
 
 func _on_Area2D_body_entered(body):
 	if isDeveloping:
-		print(body.get_position())
 		freeze(body)
-
-func _on_AnimationPlayer_ready():
-	init_flash()
-	animation.play("Picture_Flash")
-
-func init_flash():
-	flash = $flash/ColorRect
-	animation = $flash/AnimationPlayer
-	flash.set_position(get_camera_center())
-	
-	#flash.set_as_toplevel(true)
 
 func get_camera_center():
 	var canvas_transfrom = get_canvas_transform()
 	var top_left = -canvas_transfrom.get_origin() / canvas_transfrom.get_scale()
 	var size = get_viewport_rect().size * (1/2)
 	return top_left + size/canvas_transfrom.get_scale()
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	animation.stop(false)
-	animation.queue_free()
-	flash.queue_free()
-
