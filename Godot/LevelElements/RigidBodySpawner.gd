@@ -16,13 +16,16 @@ func _ready():
 func _on_Timer_timeout():
 	var new_rigid = rigidBody2D.instance()
 	elements_node.add_child(new_rigid)
-	elements.append(new_rigid)
+	elements.push_back(new_rigid)
 	if elements.size() > max_elements:
 		var element = elements[0]
-		elements_node.remove_child(element)
-		elements.erase(element)
-		element.queue_free()
-
-
-	
-	
+		if element:
+			elements_node.remove_child(element)
+			elements.pop_front()
+			element.queue_free()
+		
+func free_child(node):
+	if node in elements:
+		elements_node.remove_child(node)
+		elements.erase(node)
+		node.queue_free()

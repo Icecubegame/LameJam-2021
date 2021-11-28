@@ -62,7 +62,7 @@ tracks/0/keys = {
 
 [node name="Picture" type="Node2D"]
 script = ExtResource( 1 )
-size = 2.0
+size = 20.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

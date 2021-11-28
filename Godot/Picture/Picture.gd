@@ -50,24 +50,31 @@ func freeze(body):
 	var isCapturable = body is RigidBody2D or body.is_in_group("Capturable")
 	
 	if isCapturable and (not body.is_in_group("NotCapturable")):
-		print("test")
+		print("Captured")
 		var current_bodies = []
 		current_bodies.append(body)
+		var current_body = current_bodies[0]
 		
 		while current_bodies:
-			var current_body = current_bodies[0]
+			print(current_bodies)
+			current_body = current_bodies[0]
 			if current_body is RigidBody2D:
-				$Elements.add_child(rigid_to_static(body))
+				$Elements.add_child(rigid_to_static(current_body))
 				current_bodies.erase(current_body)
 			elif current_body is StaticBody2D:
-				$Elements.add_child(body.duplicate())
+				$Elements.add_child(current_body.duplicate())
 				current_bodies.erase(current_body)
 			else:
 				for childern in current_body.get_children():
 					current_bodies.append(childern)
 				current_bodies.erase(current_body)
-				
-		body.queue_free()
+		
+		if body.is_in_group("CustomFree"):
+			body.free_child(current_body)
+		elif body.get_parent().is_in_group("CustomFree"):
+			body.get_parent().free_child(current_body)
+		else:
+			body.queue_free()
 		#Jeez I wished this worked (icecube)
 		#body.set_mode(RigidBody2D.MODE_STATIC)
 
