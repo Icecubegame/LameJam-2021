@@ -21,7 +21,7 @@ func _on_Area2D_body_entered(body):
 	if !hasSpawnd:
 		print("spawn")
 		hasSpawnd = true
-		var picture_scene = load("res://Picture.tscn")
+		var picture_scene = load("res://Picture/Picture.tscn")
 		var picture = picture_scene.instance()
 		picture.set_position($Position2D.get_position())
 		add_child(picture)

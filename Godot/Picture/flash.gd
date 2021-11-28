@@ -9,8 +9,8 @@ func _ready():
 
 
 func init_flash():
-	flash = $flash/ColorRect
-	animation = $flash/AnimationPlayer
+	flash = $ColorRect
+	animation = $AnimationPlayer
 	flash.set_position(get_parent().get_camera_center())
 
 func _on_AnimationPlayer_animation_finished(anim_name):

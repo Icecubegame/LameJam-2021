@@ -17,6 +17,6 @@ shape = SubResource( 1 )
 
 [node name="Elements" type="Node2D" parent="."]
 
-[node name="flash" parent="." instance=ExtResource( 2 )]
+[node name="Flash" parent="." instance=ExtResource( 2 )]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
