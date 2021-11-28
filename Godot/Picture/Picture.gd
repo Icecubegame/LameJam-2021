@@ -47,12 +47,29 @@ func _physics_process(delta):
 	ticksElapsed += 1
 
 func freeze(body):
-	if body is RigidBody2D:
-		$Elements.add_child(rigid_to_static(body))
-		body.queue_free()
+	var isCapturable = body is RigidBody2D or body.is_in_group("Capturable")
+	
+	if isCapturable and (not body.is_in_group("NotCapturable")):
+		print("test")
+		var current_bodies = []
+		current_bodies.append(body)
 		
+		while current_bodies:
+			var current_body = current_bodies[0]
+			if current_body is RigidBody2D:
+				$Elements.add_child(rigid_to_static(body))
+				current_bodies.erase(current_body)
+			elif current_body is StaticBody2D:
+				$Elements.add_child(body.duplicate())
+				current_bodies.erase(current_body)
+			else:
+				for childern in current_body.get_children():
+					current_bodies.append(childern)
+				current_bodies.erase(current_body)
+				
+		body.queue_free()
 		#Jeez I wished this worked (icecube)
-		#body.set_mode(RigidBody2D.MODE_RIGID)
+		#body.set_mode(RigidBody2D.MODE_STATIC)
 
 func rigid_to_static(body):
 	var staticBody = StaticBody2D.new()
@@ -79,3 +96,8 @@ func copy_physical_and_visual_children(dest, targ):
 func _on_Area2D_body_entered(body):
 	if isDeveloping:
 		freeze(body)
+
+func _on_Area2D_area_entered(area):
+	if isDeveloping:
+		if area.get_parent().is_in_group("Capturable"):
+			freeze(area.get_parent())
