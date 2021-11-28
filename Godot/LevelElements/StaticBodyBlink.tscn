@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LevelElements/StaticBodyBlink.gd" type="Script" id=1]
+[ext_resource path="res://Block.tscn" type="PackedScene" id=2]
+
+[node name="StaticBodyBlink" type="Node2D"]
+script = ExtResource( 1 )
+staticBody2D = ExtResource( 2 )
+
+[node name="OnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="OffTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="OnTimer" to="." method="_on_OnTimer_timeout"]
+[connection signal="timeout" from="OffTimer" to="." method="_on_OffTimer_timeout"]

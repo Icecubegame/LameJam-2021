@@ -19,6 +19,7 @@ func _on_Timer_timeout():
 	elements.append(new_rigid)
 	if elements.size() > max_elements:
 		var element = elements[0]
+		elements_node.remove_child(element)
 		elements.erase(element)
 		element.queue_free()
 
