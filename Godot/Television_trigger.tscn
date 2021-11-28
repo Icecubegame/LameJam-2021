@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Television.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35, 22 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25.5, 15.5 )
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Television" type="StaticBody2D" parent="."]
+position = Vector2( 5, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Icon" type="Sprite" parent="Television"]
+position = Vector2( -5.5, -2.5 )
+scale = Vector2( 0.796875, 0.484375 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Television"]
+position = Vector2( -5.5, -2.5 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="Television" method="_on_Area2D_body_entered"]
