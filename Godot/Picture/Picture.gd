@@ -5,7 +5,7 @@ var isDeveloping
 var developingTicks
 var ticksElapsed
 
-export var aspect_ratio : float = 1.348
+export var aspect_ratio : float = 1
 export var size : float = 1
 
 func _ready():
@@ -17,7 +17,7 @@ func _ready():
 
 func init_scale():
 	var scale = Vector2(aspect_ratio*size, size)
-	$Area2D/CollisionShape2D.set_scale(scale)
+	set_scale(scale)
 
 func init_elements_node():
 	var elements = $Elements
@@ -67,9 +67,3 @@ func copy_physical_and_visual_children(dest, targ):
 func _on_Area2D_body_entered(body):
 	if isDeveloping:
 		freeze(body)
-
-func get_camera_center():
-	var canvas_transfrom = get_canvas_transform()
-	var top_left = -canvas_transfrom.get_origin() / canvas_transfrom.get_scale()
-	var size = get_viewport_rect().size * (1/2)
-	return top_left + size/canvas_transfrom.get_scale()
