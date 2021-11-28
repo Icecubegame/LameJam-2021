@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ticking_clock.wav-deea342f0b52519d547ad46c97aa5771.sample"
+
+[deps]
+
+source_file="res://ticking_clock.wav"
+dest_files=[ "res://.import/ticking_clock.wav-deea342f0b52519d547ad46c97aa5771.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
