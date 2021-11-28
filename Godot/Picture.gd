@@ -1,18 +1,28 @@
 extends Node2D
 
-var area
+onready var area = $Area2D
 var isDeveloping
 var developingTicks
 var ticksElapsed
 
+var flash
+var animation
+
+export var aspect_ratio : float = 1.348
+export var size : float = 1
+
 func _ready():
-	init_Elements()
-	area = $Area2D
+	init_scale()
+	init_elements_node()
 	isDeveloping = true
 	developingTicks = 2
 	ticksElapsed = 0
 
-func init_Elements():
+func init_scale():
+	var scale = Vector2(aspect_ratio*size, size)
+	$Area2D/CollisionShape2D.set_scale(scale)
+
+func init_elements_node():
 	var elements = $Elements
 	elements.set_as_toplevel(true)
 	elements.set_position(get_node("/root").get_child(0).get_position())
@@ -22,13 +32,13 @@ func init_Elements():
 #	pass
 
 func _physics_process(delta):
-	ticksElapsed += 1
-	if ticksElapsed >= developingTicks:
+	if ticksElapsed > developingTicks:
 		isDeveloping = false
+		
+	ticksElapsed += 1
 
 func freeze(body):
 	if body is RigidBody2D:
-		print(body.get_position())
 		$Elements.add_child(rigid_to_static(body))
 		body.queue_free()
 		
@@ -60,5 +70,27 @@ func copy_physical_and_visual_children(dest, targ):
 func _on_Area2D_body_entered(body):
 	if isDeveloping:
 		print(body.get_position())
-		print("freeze")
 		freeze(body)
+
+func _on_AnimationPlayer_ready():
+	init_flash()
+	animation.play("Picture_Flash")
+
+func init_flash():
+	flash = $flash/ColorRect
+	animation = $flash/AnimationPlayer
+	flash.set_position(get_camera_center())
+	
+	#flash.set_as_toplevel(true)
+
+func get_camera_center():
+	var canvas_transfrom = get_canvas_transform()
+	var top_left = -canvas_transfrom.get_origin() / canvas_transfrom.get_scale()
+	var size = get_viewport_rect().size * (1/2)
+	return top_left + size/canvas_transfrom.get_scale()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	animation.stop(false)
+	animation.queue_free()
+	flash.queue_free()
+
