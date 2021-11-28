@@ -58,6 +58,7 @@ texture = ExtResource( 2 )
 
 [node name="Picture" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
+z_index = -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

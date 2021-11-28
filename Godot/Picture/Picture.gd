@@ -21,9 +21,21 @@ func init_scale():
 
 func init_elements_node():
 	var elements = $Elements
+	elements.set_z_index(get_abs_z(self) - 1)
 	elements.set_as_toplevel(true)
 	elements.set_position(get_node("/root").get_child(0).get_position())
+
+func get_abs_z(targ):
+	var z = 0
+	var node = targ
 	
+	while node and node is Node2D:
+		z += node.get_z_index()
+		if !node.is_z_relative():
+			break
+		node = node.get_parent()
+	return z
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
