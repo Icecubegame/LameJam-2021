@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Picture/Click_To_Capture.gd" type="Script" id=1]
 
-[node name="Control" type="Control"]
+[node name="ClickToCapture" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )

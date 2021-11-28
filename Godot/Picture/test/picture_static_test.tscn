@@ -10,10 +10,9 @@
 extents = Vector2( 118.25, 2.5 )
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 0, -7 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 28, -16 )
+position = Vector2( 25, 75 )
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
 position = Vector2( -1.90735e-06, 1.90735e-06 )
@@ -24,7 +23,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2( -5, -178 )
+position = Vector2( -5, -124 )
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D2"]
 position = Vector2( -1.90735e-06, 1.90735e-06 )
@@ -35,7 +34,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="."]
-position = Vector2( -16, -38 )
+position = Vector2( -19, 53 )
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D3"]
 position = Vector2( -1.90735e-06, 1.90735e-06 )
@@ -46,7 +45,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -2, 20 )
+position = Vector2( -5, 111 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 5.75, -3 )
@@ -58,10 +57,15 @@ scale = Vector2( 3.6875, 0.09375 )
 texture = ExtResource( 2 )
 
 [node name="Picture" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -32 )
+position = Vector2( -3, 59 )
 z_index = -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 0.5, 0.5 )
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="Control" parent="." instance=ExtResource( 3 )]
+margin_left = -3.0
+margin_top = 91.0
+margin_right = 37.0
+margin_bottom = 131.0

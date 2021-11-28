@@ -47,12 +47,13 @@ func _physics_process(delta):
 	ticksElapsed += 1
 
 func freeze(body):
-	if body is RigidBody2D:
+	var isCapturable = body is RigidBody2D or body.is_in_group("Capturable")
+	if isCapturable and (not body.is_in_group("NotCapturable")):
 		$Elements.add_child(rigid_to_static(body))
 		body.queue_free()
 		
 		#Jeez I wished this worked (icecube)
-		#body.set_mode(RigidBody2D.MODE_RIGID)
+		#body.set_mode(RigidBody2D.MODE_STATIC)
 
 func rigid_to_static(body):
 	var staticBody = StaticBody2D.new()
