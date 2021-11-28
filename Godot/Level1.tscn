@@ -513,7 +513,8 @@ stream = ExtResource( 21 )
 autoplay = true
 
 [node name="Tree" type="StaticBody2D" parent="."]
-position = Vector2( 3232, -1729 )
+position = Vector2( 3152, -1759 )
+rotation = 0.16586
 scale = Vector2( 1, 1.28 )
 
 [node name="Sprite" type="Sprite" parent="Tree"]
@@ -541,8 +542,9 @@ scale = Vector2( 1, 0.760215 )
 shape = SubResource( 12 )
 
 [node name="Tree2" type="StaticBody2D" parent="."]
-position = Vector2( 3741, -1659 )
-scale = Vector2( 0.800004, 0.559999 )
+position = Vector2( 3596, -1623 )
+rotation = 0.177432
+scale = Vector2( 0.800004, 0.810351 )
 
 [node name="Sprite" type="Sprite" parent="Tree2"]
 position = Vector2( -52.4998, 0 )
@@ -570,8 +572,9 @@ scale = Vector2( 1, 0.760215 )
 shape = SubResource( 12 )
 
 [node name="Tree3" type="StaticBody2D" parent="."]
-position = Vector2( 4086, -1526 )
-scale = Vector2( -0.879997, 0.199998 )
+position = Vector2( 3999, -1513 )
+rotation = 0.156948
+scale = Vector2( 1.09368, 0.552068 )
 
 [node name="Sprite" type="Sprite" parent="Tree3"]
 position = Vector2( -51.1367, -10 )
@@ -599,7 +602,7 @@ scale = Vector2( 1, 0.760215 )
 shape = SubResource( 12 )
 
 [node name="Squirrel" type="StaticBody2D" parent="."]
-position = Vector2( 2714, -2715 )
+position = Vector2( 2847, -2613 )
 
 [node name="Sprite" type="Sprite" parent="Squirrel"]
 position = Vector2( 14, -19 )

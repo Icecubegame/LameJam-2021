@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://artisa.tres" type="DynamicFont" id=1]
+[ext_resource path="res://bgs/Artisa.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="MarginContainer"]
+margin_left = 443.0
+margin_top = 283.0
+margin_right = 483.0
+margin_bottom = 323.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -450.0
+margin_top = -300.0
+margin_right = 600.0
+margin_bottom = 350.0
+color = Color( 0.0745098, 0.619608, 0.745098, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = -175.0
+margin_top = -100.0
+margin_right = 346.0
+margin_bottom = 185.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 521.0
+margin_bottom = 285.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 521.0
+margin_bottom = 102.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 521.0
+margin_bottom = 102.0
+custom_colors/font_color_shadow = Color( 0.00784314, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "LOST AND FOUND"
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 521.0
+margin_bottom = 285.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 86.0
+margin_right = 434.0
+margin_bottom = 179.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 348.0
+margin_bottom = 57.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 348.0
+margin_bottom = 57.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 27.0
+margin_right = 348.0
+margin_bottom = 57.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " Start searching"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 61.0
+margin_right = 348.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 348, 0 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 348.0
+margin_bottom = 57.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 27.0
+margin_right = 348.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 321, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " Credits"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 122.0
+margin_right = 348.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 348, 0 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_right = 348.0
+margin_bottom = 57.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 27.0
+margin_right = 348.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 321, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = " give up"
