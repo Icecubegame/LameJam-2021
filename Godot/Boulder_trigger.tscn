@@ -3,7 +3,7 @@
 [ext_resource path="res://Rock.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 118.75, 76.5 )
+extents = Vector2( 306.902, 147.407 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
