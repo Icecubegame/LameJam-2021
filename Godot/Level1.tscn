@@ -24,13 +24,13 @@
 [ext_resource path="res://ticking_clock.wav" type="AudioStream" id=22]
 [ext_resource path="res://bgs/tree_color.png" type="Texture" id=23]
 [ext_resource path="res://bgs/squirrel_color.png" type="Texture" id=24]
-[ext_resource path="res://Boulder_trigger.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Boulder.tscn" type="PackedScene" id=26]
 [ext_resource path="res://PlayerAnimations/PlayerJump.png" type="Texture" id=27]
 [ext_resource path="res://PlayerAnimations/PlayerFall1.png" type="Texture" id=28]
 [ext_resource path="res://PlayerAnimations/PlayerFall3.png" type="Texture" id=29]
 [ext_resource path="res://PlayerAnimations/PlayerFall2.png" type="Texture" id=30]
 [ext_resource path="res://PlayerAnimations/PlayerIdle.png" type="Texture" id=31]
+[ext_resource path="res://LevelElements/RigidBodySpawner.tscn" type="PackedScene" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 482.778, 33.408 )
@@ -42,6 +42,11 @@ radius = 73.648
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "run",
@@ -55,11 +60,6 @@ animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 30 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 31 ) ],
-"loop": true,
-"name": "idle",
 "speed": 5.0
 } ]
 
@@ -256,19 +256,6 @@ texture = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
 position = Vector2( 1464.7, -160.241 )
 shape = SubResource( 4 )
-
-[node name="Trigger" parent="Head" instance=ExtResource( 25 )]
-position = Vector2( 770.193, 189.759 )
-
-[node name="Area2D" parent="Head/Trigger" index="0"]
-position = Vector2( 27.6165, -27.4097 )
-scale = Vector2( 0.590867, 1 )
-
-[node name="CollisionShape2D" parent="Head/Trigger/Area2D" index="0"]
-position = Vector2( -98.7034, 27.5 )
-
-[node name="Position2D" parent="Head/Trigger" index="1"]
-position = Vector2( 809.061, -620.933 )
 
 [node name="Boulder" parent="Head" instance=ExtResource( 26 )]
 position = Vector2( 2082.49, -727.409 )
@@ -632,5 +619,13 @@ position = Vector2( -3, 19 )
 rotation = -1.06318
 shape = SubResource( 14 )
 
-[editable path="Head/Trigger"]
+[node name="RigidBodySpawner" parent="." instance=ExtResource( 32 )]
+position = Vector2( 1432, -294 )
+rigidBody2D = ExtResource( 26 )
+max_elements = 3
+
+[node name="Timer" parent="RigidBodySpawner" index="0"]
+wait_time = 3.0
+
 [editable path="Player"]
+[editable path="RigidBodySpawner"]
