@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Picture/Picture.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Picture/Click_To_Capture.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -62,3 +63,5 @@ z_index = -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
