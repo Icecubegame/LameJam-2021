@@ -24,7 +24,7 @@
 [ext_resource path="res://ticking_clock.wav" type="AudioStream" id=22]
 [ext_resource path="res://bgs/tree_color.png" type="Texture" id=23]
 [ext_resource path="res://bgs/squirrel_color.png" type="Texture" id=24]
-[ext_resource path="res://Picture/Click_To_Capture.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Picture/Scenes/Click_To_Capture.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Boulder.tscn" type="PackedScene" id=26]
 [ext_resource path="res://PlayerAnimations/PlayerJump.png" type="Texture" id=27]
 [ext_resource path="res://PlayerAnimations/PlayerFall1.png" type="Texture" id=28]
@@ -37,6 +37,7 @@
 [ext_resource path="res://TVs/TV3.tscn" type="PackedScene" id=35]
 [ext_resource path="res://TVs/TV.tscn" type="PackedScene" id=36]
 [ext_resource path="res://LevelElements/StaticBodyBlink.tscn" type="PackedScene" id=37]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 482.778, 33.408 )
