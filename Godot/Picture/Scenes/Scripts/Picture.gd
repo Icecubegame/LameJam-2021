@@ -2,9 +2,9 @@ extends Node2D
 
 onready var elements = $Elements 
 onready var area = $Area2D
-var isDeveloping
-var developingTicks
-var ticksElapsed
+onready var isDeveloping = true
+onready var developingTicks = 0
+onready var ticksElapsed = 0
 
 export var aspect_ratio : float = 1
 export var size : float = 1
@@ -12,9 +12,6 @@ export var size : float = 1
 func _ready():
 	init_scale()
 	init_elements_node()
-	isDeveloping = true
-	developingTicks = 2
-	ticksElapsed = 0
 
 func init_scale():
 	var scale = Vector2(aspect_ratio*size, size)
