@@ -98,7 +98,7 @@ height = 216.711
 height = 157.937
 
 [node name="Level1" type="Node2D"]
-position = Vector2( 100, 100 )
+position = Vector2( -100, -100 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_vertical_guides_": [ -749.0 ]
@@ -326,18 +326,23 @@ scale = Vector2( 1.14683, 1.14683 )
 texture = ExtResource( 15 )
 
 [node name="TV5" parent="." instance=ExtResource( 37 )]
+visible = false
 staticBody2D = ExtResource( 34 )
 
 [node name="TV4" parent="." instance=ExtResource( 37 )]
+visible = false
 staticBody2D = ExtResource( 33 )
 
 [node name="TV3" parent="." instance=ExtResource( 37 )]
+visible = false
 staticBody2D = ExtResource( 35 )
 
 [node name="TV2" parent="." instance=ExtResource( 37 )]
+visible = false
 staticBody2D = ExtResource( 3 )
 
 [node name="TV1" parent="." instance=ExtResource( 37 )]
+visible = false
 staticBody2D = ExtResource( 36 )
 
 [node name="Chandelier" type="StaticBody2D" parent="."]
@@ -563,8 +568,6 @@ max_elements = 3
 wait_time = 3.0
 
 [node name="ClickToCapture" parent="." instance=ExtResource( 25 )]
-margin_right = 0.0
-margin_bottom = 0.0
 
 [editable path="Player"]
 [editable path="TV5"]

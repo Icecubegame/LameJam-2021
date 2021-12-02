@@ -10,17 +10,7 @@ export var aspect_ratio : float = 1
 export var size : float = 1
 
 func _ready():
-	init_scale()
-	init_elements_node()
-
-func init_scale():
-	var scale = Vector2(aspect_ratio*size, size)
-	set_scale(scale)
-
-func init_elements_node():
-	elements.set_z_index(get_abs_z(self) - 1)
-	elements.set_as_toplevel(true)
-	elements.set_position(get_node("/root").get_child(0).get_position())
+	update_scale()
 
 func _physics_process(delta):
 	if ticksElapsed > developingTicks:
@@ -30,7 +20,26 @@ func _physics_process(delta):
 func capture_moment(node):
 	for child in node.get_children():
 		if child.is_in_group(PictureGlobalConfig.COMPONENT_GROUP):
-			elements.add_child(child.get_image())
+			var image = child.get_image()
+			fix_position(image)
+			fix_scale(image)
+			elements.add_child(image)
+
+func update_scale():
+	var scale = Vector2(aspect_ratio*size, size)
+	$Polaroid.set_scale(scale)
+	$Area2D.set_scale(scale)
+
+func fix_position(image):
+	var picture_pos = get_position()
+	var current_pos = image.get_position()
+	image.set_position(current_pos - picture_pos)
+
+func fix_scale(image):
+	pass #TODO wrong scale when source_node is under scale of it's perent
+
+func get_abs_scale(node):
+	pass #TODO
 
 func get_abs_z(node):
 	var z = 0
