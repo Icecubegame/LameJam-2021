@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WhatIsLeft.mp3-0cfd7c8935f83dc0c26de08978bbc40a.mp3str"
+
+[deps]
+
+source_file="res://Levels/Audio/WhatIsLeft.mp3"
+dest_files=[ "res://.import/WhatIsLeft.mp3-0cfd7c8935f83dc0c26de08978bbc40a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

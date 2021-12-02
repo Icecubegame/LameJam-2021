@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PictureSystem/Scenes/Scripts/Click_To_Capture.gd" type="Script" id=1]
+
+[node name="ClickerToCapture" type="Node2D"]
+script = ExtResource( 1 )
+size = 2.0
