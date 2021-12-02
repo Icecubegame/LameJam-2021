@@ -6,8 +6,8 @@ export var size : float = 1
 onready var picture_scene = load(PictureGlobalConfig.PICTURE_PATH)
 
 func _ready():
-	var root_pos = get_node("/root").get_child(0).get_position()
-	set_position(-root_pos)
+	var progenitor_pos = get_progenitor(self).get_position()
+	set_position(-progenitor_pos)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -17,5 +17,13 @@ func _input(event):
 			picture.size = size
 			picture.update_scale()
 			picture.set_position(get_global_mouse_position())
-			print(get_global_mouse_position())
 			add_child(picture)
+
+func get_progenitor(node):
+	var progenitor = node
+	var current_node = node
+	var root = get_node("/root")
+	while current_node != root:
+		progenitor = current_node
+		current_node = current_node.get_parent()
+	return progenitor

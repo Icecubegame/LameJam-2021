@@ -13,6 +13,7 @@ var current_selection = 0
 
 func _ready():
 	set_current_selection(0)
+	print(get_node("/root").get_children())
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 1:
@@ -26,7 +27,8 @@ func _process(delta):
 	
 func _handle_selection(_current_selection):
 	if	_current_selection == 0:
-		get_parent().add_child(Level1.instance())	
+		get_parent().add_child(Level1.instance())
+		get_parent().remove_child(self)
 		queue_free()
 	elif _current_selection ==1:
 		get_tree().quit()
