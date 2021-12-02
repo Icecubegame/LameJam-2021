@@ -11,6 +11,7 @@ func init_flash():
 	flash = $ColorRect
 	animation = $AnimationPlayer
 	flash.set_position(get_parent().get_camera_center())
+	flash.set_scale(get_parent().get_camera_scale())
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	animation.stop(false)
